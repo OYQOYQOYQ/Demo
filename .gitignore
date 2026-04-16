@@ -8,7 +8,7 @@ import_presets.cfg
 project.godot
 project.binary
 *.godot/
-.uid/
+*.uid
 
 # Build artifacts
 build/
@@ -26,6 +26,7 @@ export_presets.cfg
 .user/
 .mono/
 mono_crash.*.json
+.vscode/
 
 # Platform-specific ignores
 /android/
