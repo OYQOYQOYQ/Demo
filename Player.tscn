@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cvxl5px3s68rl"]
+
+[ext_resource type="Texture2D" uid="uid://bxoppbvn8pseu" path="res://Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_xhfnw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpjcp"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kne1u"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhfnw"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
+atlas = ExtResource("1_xhfnw")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e80uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpjcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kne1u")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhfnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e80uo")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
+
+[sub_resource type="Animation" id="Animation_xhfnw"]
+resource_name = "Idle"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpjcp"]
+_data = {
+&"Idle": SubResource("Animation_xhfnw")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=2012578099]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1443067386]
+sprite_frames = SubResource("SpriteFrames_e80uo")
+animation = &"Idle"
+frame = 1
+frame_progress = 0.026398407
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
+position = Vector2(0, -8.000001)
+scale = Vector2(0.5075798, 0.46227226)
+shape = SubResource("CapsuleShape2D_xhfnw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=363410695]
+libraries/ = SubResource("AnimationLibrary_kpjcp")
+autoplay = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1556662034]
