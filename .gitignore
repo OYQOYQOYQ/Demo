@@ -5,7 +5,6 @@
 *.import
 *.translation
 import_presets.cfg
-project.godot
 project.binary
 *.godot/
 *.uid
