@@ -14,6 +14,7 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		GD.Print(_direction);
 		_direction = Input.GetVector("LeftMove", "RightMove", "ForwardMove", "BackMove");
 		if (_direction != Vector2.Zero)
 		{

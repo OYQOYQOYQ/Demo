@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvxl5px3s68rl"]
 
-[ext_resource type="Texture2D" uid="uid://bxoppbvn8pseu" path="res://Player/Basic Charakter Spritesheet.png" id="1_3qydi"]
-[ext_resource type="Script" uid="uid://bgp0l4q73hwf3" path="res://Player/Player.cs" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://bx88bxfaeyhux" path="res://Player/Basic Charakter Spritesheet.png" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://cmgshlpntj5p7" path="res://Player/Player.cs" id="1_q3lat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
 atlas = ExtResource("1_3qydi")
@@ -410,7 +410,7 @@ process_callback = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1443067386]
 sprite_frames = SubResource("SpriteFrames_e80uo")
-animation = &"LeftRun"
+animation = &"RightIdle"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
