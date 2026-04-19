@@ -5,8 +5,14 @@
 
 [node name="Main" type="Node" unique_id=877075090]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1223352653]
+[node name="TileMap" type="Node" parent="." unique_id=1663920234]
+
+[node name="Icon" type="Sprite2D" parent="TileMap" unique_id=1223352653]
 position = Vector2(127, 67)
 texture = ExtResource("2_r0du0")
 
-[node name="Player" parent="." unique_id=2012578099 instance=ExtResource("1_uu6xs")]
+[node name="YSort" type="Node2D" parent="." unique_id=131850952]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" unique_id=2012578099 instance=ExtResource("1_uu6xs")]
+position = Vector2(123, 67)

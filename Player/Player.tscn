@@ -3,188 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://bx88bxfaeyhux" path="res://Player/Basic Charakter Spritesheet.png" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://oopsjr4ydcs0" path="res://Player/Player.cs" id="1_q3lat"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxr5p"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(0, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdg3f"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(48, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtqjt"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(96, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ncpa"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(144, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpjcp"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kne1u"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xhfnw"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wi0c6"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(0, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hp6x6"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(48, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tkgg"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(96, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6ohk"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(144, 96, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oudfo"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(0, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6rpx"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(48, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3kul"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(96, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jatw7"]
-atlas = ExtResource("1_3qydi")
-region = Rect2(144, 144, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e80uo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cxr5p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdg3f")
-}],
-"loop": true,
-"name": &"BackIdle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dtqjt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ncpa")
-}],
-"loop": true,
-"name": &"BackRun",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpjcp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kne1u")
-}],
-"loop": true,
-"name": &"ForwardIdle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xhfnw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e80uo")
-}],
-"loop": true,
-"name": &"ForwardRun",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wi0c6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hp6x6")
-}],
-"loop": true,
-"name": &"LeftIdle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tkgg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l6ohk")
-}],
-"loop": true,
-"name": &"LeftRun",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oudfo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6rpx")
-}],
-"loop": true,
-"name": &"RightIdle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r3kul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jatw7")
-}],
-"loop": true,
-"name": &"RightRun",
-"speed": 4.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
 
 [sub_resource type="Animation" id="Animation_kpjcp"]
 length = 0.7
 loop_mode = 1
 step = 0.35
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"BackIdle"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -196,27 +27,13 @@ resource_name = "BackRun"
 length = 0.6
 loop_mode = 1
 step = 0.3
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"BackRun"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -228,27 +45,13 @@ resource_name = "Idle"
 length = 0.7
 loop_mode = 1
 step = 0.4
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"ForwardIdle"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -260,27 +63,13 @@ resource_name = "ForwardRun"
 length = 0.6
 loop_mode = 1
 step = 0.3
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"ForwardRun"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -291,27 +80,13 @@ tracks/1/keys = {
 length = 0.7
 loop_mode = 1
 step = 0.35
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"LeftIdle"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -323,27 +98,13 @@ resource_name = "LeftRun"
 length = 0.6
 loop_mode = 1
 step = 0.3
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"LeftRun"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -355,8 +116,8 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -370,27 +131,13 @@ resource_name = "RightIdle"
 length = 0.7
 loop_mode = 1
 step = 0.35
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"RightIdle"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -402,27 +149,13 @@ resource_name = "RightRun"
 length = 0.6
 loop_mode = 1
 step = 0.3
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move:frame")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"RightRun"],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -547,29 +280,24 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1913036928]
+[node name="Move" type="Sprite2D" parent="." unique_id=1913036928]
 texture = ExtResource("1_3qydi")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1443067386]
-visible = false
-sprite_frames = SubResource("SpriteFrames_e80uo")
-animation = &"ForwardIdle"
-frame = 1
-frame_progress = 0.13861248
-offset = Vector2(0, -8)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
 position = Vector2(0, -8.000001)
 scale = Vector2(0.5075798, 0.46227226)
 shape = SubResource("CapsuleShape2D_xhfnw")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=363410695]
+callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_kpjcp")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=734804807]
+callback_mode_process = 0
 tree_root = SubResource("AnimationNodeStateMachine_s1rgi")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/IsIdle = false
