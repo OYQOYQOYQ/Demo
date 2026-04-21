@@ -3,6 +3,14 @@ using Godot;
 
 namespace Demo.Player;
 
+public enum EBehaviorState
+{
+	Null,
+	Hoeing,
+	ChopTree,
+	Water,
+}
+
 public partial class Player : CharacterBody2D
 {
 	[Export]
@@ -11,14 +19,17 @@ public partial class Player : CharacterBody2D
 	private float MoveSpeed {get; set;} = 100.0f;
 	[Export]
 	private Sprite2D _sprite;
+	[Export]
+	private EBehaviorState _behaviorState;
 
     private Vector2 _direction;
 	private Vector2 _lastDirection = Vector2.Down;
-	private Vector2 _hoeingDirection;
+	private Vector2 _currentBehaviorDirection;
 	private AnimationNodeStateMachinePlayback _stateMachinePlayback;
+	private StringName _currentBehaviorState;
 	private int _hoeingFrameCount = 0;
 	private double _hoeingStartTime = 0;
-	private const double MAX_HOEING_DURATION = 0.53; // 最大允许耕地时间（秒）
+	private const double MAX_HOEING_DURATION = 1; // 最大允许耕地时间（秒）
 
 	public override void _Ready()
 	{
@@ -28,7 +39,9 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		bool isCurrentlyHoeing = _animationTree.Get("parameters/conditions/IsHoeing").AsBool();
+		CurrentBehaviorState(_behaviorState);
+
+		bool isCurrentlyHoeing = _animationTree.Get($"parameters/conditions/Is{_currentBehaviorState}").AsBool();
 
         // 耕地状态检测和卡住恢复
         if (isCurrentlyHoeing) 
@@ -42,13 +55,7 @@ public partial class Player : CharacterBody2D
 			// 如果耕地时间超过最大允许时间，强制退出
 			if (hoeingDuration > MAX_HOEING_DURATION)
 			{
-				GD.Print($"耕地动画卡住，强制退出。持续时间: {hoeingDuration:F2}秒，帧数: {_hoeingFrameCount}");
-				ForceExitHoeingState();
-			}
-			// 基于帧数的备用检测
-			else if (_hoeingFrameCount > 180) // 约3秒（60fps × 3）
-			{
-				GD.Print($"耕地动画可能卡住。帧数: {_hoeingFrameCount}");
+				GD.Print($"行为动画卡住，强制退出。持续时间: {hoeingDuration:F2}秒，帧数: {_hoeingFrameCount}");
 				ForceExitHoeingState();
 			}
         }
@@ -58,7 +65,7 @@ public partial class Player : CharacterBody2D
 			// 重置耕地状态计数器
 			_hoeingFrameCount = 0;
 			_hoeingStartTime = 0;
-			_animationTree.Set("parameters/conditions/IsHoeing", false);
+			_animationTree.Set($"parameters/conditions/{_currentBehaviorState}", false);
 			_direction = Input.GetVector("LeftMove", "RightMove", "ForwardMove", "BackMove");
 			if (_direction != Vector2.Zero)
 			{
@@ -84,23 +91,22 @@ public partial class Player : CharacterBody2D
 		bool isHoeing = Input.IsActionJustPressed("Hoeing");
 		if (isHoeing && !isCurrentlyHoeing)
 		{
-			// 记录耕地开始时间
 			_hoeingStartTime = Time.GetTicksMsec();
 			_hoeingFrameCount = 0;
 			
             _animationTree.Set("parameters/conditions/IsIdle", false);
 			_animationTree.Set("parameters/conditions/IsRunning", false);
-			_animationTree.Set("parameters/conditions/IsHoeing", true);
+			_animationTree.Set($"parameters/conditions/Is{_currentBehaviorState}", true);
 
 			if (_direction != Vector2.Zero)
 			{
-				_hoeingDirection = _direction;
+				_currentBehaviorDirection = _direction;
 			}
 			else
 			{
-				_hoeingDirection = _lastDirection;
+				_currentBehaviorDirection = _lastDirection;
 			}
-			_animationTree.Set("parameters/Hoeing/blend_position", _hoeingDirection);
+			_animationTree.Set($"parameters/{_currentBehaviorState}/blend_position", _currentBehaviorDirection);
 		}
 	}
 
@@ -111,22 +117,38 @@ public partial class Player : CharacterBody2D
 
 	private void OnAnimationFinished(StringName animationName)
 	{
-		if (animationName.ToString().Contains("Hoeing"))
+		if (animationName.ToString().Contains(_currentBehaviorState))
 		{
-			// 正常完成耕地动画
 			double hoeingDuration = (Time.GetTicksMsec() - _hoeingStartTime) / 1000.0;
-			GD.Print($"耕地动画正常完成。持续时间: {hoeingDuration:F2}秒，帧数: {_hoeingFrameCount}");
+			GD.Print($"行为动画正常完成。持续时间: {hoeingDuration:F2}秒，帧数: {_hoeingFrameCount}");
 			
-            _animationTree.Set("parameters/conditions/IsHoeing", false);
+            _animationTree.Set($"parameters/conditions/Is{_currentBehaviorState}", false);
 			_animationTree.Set("parameters/conditions/IsIdle", true);
             _animationTree.Set("parameters/PlayerIdle/blend_position", _lastDirection);
 		}
 	}
 
+	private void CurrentBehaviorState(EBehaviorState behaviorState)
+	{
+		switch (behaviorState)
+		{
+			case EBehaviorState.Null:
+				break;
+			case EBehaviorState.Hoeing:
+				_currentBehaviorState = "Hoeing";
+				break;
+			case EBehaviorState.ChopTree:
+				_currentBehaviorState = "ChopTree";
+				break;
+			case EBehaviorState.Water:
+				_currentBehaviorState = "Water";
+				break;
+		}
+	}
+
 	private void ForceExitHoeingState()
 	{
-		// 强制退出耕地状态
-		_animationTree.Set("parameters/conditions/IsHoeing", false);
+		_animationTree.Set($"parameters/conditions/Is{_currentBehaviorState}", false);
 		_animationTree.Set("parameters/conditions/IsIdle", true);
 		_hoeingFrameCount = 0;
 		_hoeingStartTime = 0;
