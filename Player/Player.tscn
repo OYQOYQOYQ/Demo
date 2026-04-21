@@ -32,6 +32,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tok1r"]
 _data = {
@@ -66,6 +78,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [10, 11]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_p7tob"]
 resource_name = "ForwardHoeing"
@@ -94,6 +118,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_dm7nj"]
@@ -124,6 +160,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [12, 13]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3mea3"]
 resource_name = "ForwardHoeing"
@@ -152,6 +200,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [14, 15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7v5gs"]
@@ -504,6 +564,221 @@ _data = {
 &"RightRun": SubResource("Animation_8g4oa")
 }
 
+[sub_resource type="Animation" id="Animation_7v5gs"]
+resource_name = "ForwardHoeing"
+length = 0.6
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveSprite:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Demo:frame")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [18, 19]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8sa4y"]
+resource_name = "ForwardHoeing"
+length = 0.6
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveSprite:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Demo:frame")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3nb2p"]
+resource_name = "ForwardHoeing"
+length = 0.6
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveSprite:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Demo:frame")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 21]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d7xyo"]
+resource_name = "ForwardHoeing"
+length = 0.6
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveSprite:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Demo:frame")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [22, 23]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Demo:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nb2p"]
+_data = {
+&"BackWater": SubResource("Animation_7v5gs"),
+&"ForwardWater": SubResource("Animation_8sa4y"),
+&"LeftWater": SubResource("Animation_3nb2p"),
+&"RightWater": SubResource("Animation_d7xyo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hqjia"]
+animation = &"ChopTreeAnimation/BackChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x70vp"]
+animation = &"ChopTreeAnimation/ForwardChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wo5nf"]
+animation = &"ChopTreeAnimation/LeftChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_croik"]
+animation = &"ChopTreeAnimation/RightChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgaaw"]
+animation = &"ChopTreeAnimation/LeftChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gv3fu"]
+animation = &"ChopTreeAnimation/LeftChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xu7fl"]
+animation = &"ChopTreeAnimation/RightChopTree"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_78fhc"]
+animation = &"ChopTreeAnimation/RightChopTree"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_4n5ed"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_hqjia")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_x70vp")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wo5nf")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_croik")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_bgaaw")
+blend_point_4/pos = Vector2(-0.7, 0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_gv3fu")
+blend_point_5/pos = Vector2(-0.7, -0.7)
+blend_point_6/node = SubResource("AnimationNodeAnimation_xu7fl")
+blend_point_6/pos = Vector2(0.7, -0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_78fhc")
+blend_point_7/pos = Vector2(0.7, 0.7)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3mea3"]
 animation = &"HoeingAnimation/ForwardHoeing"
 
@@ -516,6 +791,18 @@ animation = &"HoeingAnimation/RightHoeing"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3nb2p"]
 animation = &"HoeingAnimation/LeftHoeing"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d7xyo"]
+animation = &"HoeingAnimation/LeftHoeing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_evw08"]
+animation = &"HoeingAnimation/LeftHoeing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_roy6y"]
+animation = &"HoeingAnimation/RightHoeing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u5tep"]
+animation = &"HoeingAnimation/RightHoeing"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tok1r"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_3mea3")
 blend_point_0/pos = Vector2(0, 1)
@@ -525,6 +812,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_8sa4y")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_3nb2p")
 blend_point_3/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_d7xyo")
+blend_point_4/pos = Vector2(-0.7, 0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_evw08")
+blend_point_5/pos = Vector2(-0.7, -0.7)
+blend_point_6/node = SubResource("AnimationNodeAnimation_roy6y")
+blend_point_6/pos = Vector2(0.7, 0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_u5tep")
+blend_point_7/pos = Vector2(0.7, -0.7)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tok1r"]
@@ -539,6 +834,18 @@ animation = &"MoveAnimation/LeftIdle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ysni"]
 animation = &"MoveAnimation/RightIdle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ps8ct"]
+animation = &"MoveAnimation/LeftIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7uipr"]
+animation = &"MoveAnimation/LeftIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yifbt"]
+animation = &"MoveAnimation/RightIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s0mko"]
+animation = &"MoveAnimation/RightIdle"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_6ysni"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_tok1r")
 blend_point_0/pos = Vector2(0, 1)
@@ -548,6 +855,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_8g4oa")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_6ysni")
 blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_ps8ct")
+blend_point_4/pos = Vector2(-0.7, -0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_7uipr")
+blend_point_5/pos = Vector2(-0.7, 0.7)
+blend_point_6/node = SubResource("AnimationNodeAnimation_yifbt")
+blend_point_6/pos = Vector2(0.7, -0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_s0mko")
+blend_point_7/pos = Vector2(0.7, 0.7)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vlldt"]
@@ -593,6 +908,49 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_dm7nj")
 blend_point_7/pos = Vector2(0.7, -0.7)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4n5ed"]
+animation = &"WaterAnimation/BackWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yf47d"]
+animation = &"WaterAnimation/ForwardWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvfa1"]
+animation = &"WaterAnimation/LeftWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ib3vm"]
+animation = &"WaterAnimation/RightWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtj8b"]
+animation = &"WaterAnimation/LeftWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rqaa0"]
+animation = &"WaterAnimation/LeftWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1b5h"]
+animation = &"WaterAnimation/RightWater"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7w4lt"]
+animation = &"WaterAnimation/RightWater"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ww5s2"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_4n5ed")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yf47d")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_jvfa1")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ib3vm")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_vtj8b")
+blend_point_4/pos = Vector2(-0.7, 0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_rqaa0")
+blend_point_5/pos = Vector2(-0.7, -0.7)
+blend_point_6/node = SubResource("AnimationNodeAnimation_o1b5h")
+blend_point_6/pos = Vector2(0.7, 0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_7w4lt")
+blend_point_7/pos = Vector2(0.7, -0.7)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vlldt"]
 advance_mode = 2
 
@@ -616,36 +974,57 @@ advance_condition = &"IsHoeing"
 advance_mode = 2
 advance_condition = &"IsIdle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ysni"]
+advance_mode = 2
+advance_condition = &"IsChopTree"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s1rgi"]
+advance_mode = 2
+advance_condition = &"IsChopTree"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j23h2"]
+advance_mode = 2
+advance_condition = &"IsIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xw4su"]
+advance_mode = 2
+advance_condition = &"IsWater"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2ho1"]
+advance_mode = 2
+advance_condition = &"IsIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0j2ni"]
+advance_mode = 2
+advance_condition = &"IsWater"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s1rgi"]
+states/ChopTree/node = SubResource("AnimationNodeBlendSpace2D_4n5ed")
+states/ChopTree/position = Vector2(601, -57)
 states/Hoeing/node = SubResource("AnimationNodeBlendSpace2D_tok1r")
-states/Hoeing/position = Vector2(536, 217)
+states/Hoeing/position = Vector2(215, 264)
 states/PlayerIdle/node = SubResource("AnimationNodeBlendSpace2D_6ysni")
 states/PlayerIdle/position = Vector2(408, 100)
 states/PlayerRun/node = SubResource("AnimationNodeBlendSpace2D_0j2ni")
 states/PlayerRun/position = Vector2(660, 100)
-states/Start/position = Vector2(205, 143)
-transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "Hoeing", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_8g4oa")]
-graph_offset = Vector2(58, -14)
+states/Start/position = Vector2(195, 100)
+states/Water/node = SubResource("AnimationNodeBlendSpace2D_ww5s2")
+states/Water/position = Vector2(278, -103)
+transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "Hoeing", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_8g4oa"), "PlayerIdle", "ChopTree", SubResource("AnimationNodeStateMachineTransition_6ysni"), "PlayerRun", "ChopTree", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "ChopTree", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_j23h2"), "PlayerIdle", "Water", SubResource("AnimationNodeStateMachineTransition_xw4su"), "Water", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_x2ho1"), "PlayerRun", "Water", SubResource("AnimationNodeStateMachineTransition_0j2ni")]
+graph_offset = Vector2(-31, -166)
 
-[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_animationTree", "_sprite", "_time")]
+[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_animationTree", "_sprite")]
 script = ExtResource("1_q3lat")
 _animationTree = NodePath("AnimationTree")
 MoveSpeed = 80.0
 _sprite = NodePath("MoveSprite")
-_time = NodePath("Timer")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1556662034]
-zoom = Vector2(2, 2)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
+_behaviorState = 2
 
 [node name="MoveSprite" type="Sprite2D" parent="." unique_id=1913036928]
 texture = ExtResource("1_3qydi")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 4
-frame = 9
 
 [node name="Demo" type="Sprite2D" parent="." unique_id=1779203752]
 visible = false
@@ -653,6 +1032,7 @@ texture = ExtResource("3_tok1r")
 offset = Vector2(0, -8)
 hframes = 2
 vframes = 12
+frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
 position = Vector2(0, -8.000001)
@@ -666,17 +1046,22 @@ libraries/ = SubResource("AnimationLibrary_tok1r")
 libraries/ChopTreeAnimation = SubResource("AnimationLibrary_7v5gs")
 libraries/HoeingAnimation = SubResource("AnimationLibrary_p7tob")
 libraries/MoveAnimation = SubResource("AnimationLibrary_kpjcp")
+libraries/WaterAnimation = SubResource("AnimationLibrary_3nb2p")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=734804807]
 callback_mode_process = 0
 tree_root = SubResource("AnimationNodeStateMachine_s1rgi")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/IsChopTree = false
 parameters/conditions/IsHoeing = false
 parameters/conditions/IsIdle = false
 parameters/conditions/IsRunning = false
-parameters/Hoeing/blend_position = Vector2(0, 0)
+parameters/conditions/IsWater = false
+parameters/ChopTree/blend_position = Vector2(0, 0)
+parameters/Hoeing/blend_position = Vector2(-0.61772853, 0.8565401)
 parameters/PlayerIdle/blend_position = Vector2(-0.49473685, -0.13612568)
 parameters/PlayerRun/blend_position = Vector2(-0.27485383, 0.33724332)
+parameters/Water/blend_position = Vector2(0, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=1583699603]
 wait_time = 0.5
