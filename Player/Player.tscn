@@ -970,10 +970,6 @@ advance_condition = &"IsHoeing"
 advance_mode = 2
 advance_condition = &"IsHoeing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8g4oa"]
-advance_mode = 2
-advance_condition = &"IsIdle"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ysni"]
 advance_mode = 2
 advance_condition = &"IsChopTree"
@@ -982,17 +978,9 @@ advance_condition = &"IsChopTree"
 advance_mode = 2
 advance_condition = &"IsChopTree"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j23h2"]
-advance_mode = 2
-advance_condition = &"IsIdle"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xw4su"]
 advance_mode = 2
 advance_condition = &"IsWater"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2ho1"]
-advance_mode = 2
-advance_condition = &"IsIdle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0j2ni"]
 advance_mode = 2
@@ -1010,7 +998,7 @@ states/PlayerRun/position = Vector2(660, 100)
 states/Start/position = Vector2(195, 100)
 states/Water/node = SubResource("AnimationNodeBlendSpace2D_ww5s2")
 states/Water/position = Vector2(278, -103)
-transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "Hoeing", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_8g4oa"), "PlayerIdle", "ChopTree", SubResource("AnimationNodeStateMachineTransition_6ysni"), "PlayerRun", "ChopTree", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "ChopTree", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_j23h2"), "PlayerIdle", "Water", SubResource("AnimationNodeStateMachineTransition_xw4su"), "Water", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_x2ho1"), "PlayerRun", "Water", SubResource("AnimationNodeStateMachineTransition_0j2ni")]
+transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "PlayerIdle", "ChopTree", SubResource("AnimationNodeStateMachineTransition_6ysni"), "PlayerRun", "ChopTree", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "PlayerIdle", "Water", SubResource("AnimationNodeStateMachineTransition_xw4su"), "PlayerRun", "Water", SubResource("AnimationNodeStateMachineTransition_0j2ni")]
 graph_offset = Vector2(-31, -166)
 
 [node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_animationTree", "_sprite")]
@@ -1018,7 +1006,7 @@ script = ExtResource("1_q3lat")
 _animationTree = NodePath("AnimationTree")
 MoveSpeed = 80.0
 _sprite = NodePath("MoveSprite")
-_behaviorState = 2
+_behaviorState = 3
 
 [node name="MoveSprite" type="Sprite2D" parent="." unique_id=1913036928]
 texture = ExtResource("1_3qydi")
