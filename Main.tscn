@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://6n3mcis2r7bg"]
 
 [ext_resource type="TileSet" uid="uid://gmat077xq0av" path="res://TileMap.tres" id="1_r0du0"]
-[ext_resource type="PackedScene" uid="uid://cvxl5px3s68rl" path="res://Player/Player.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cvxl5px3s68rl" path="res://Core/Player/Player.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://bxa5l6xe505rd" path="res://Core/Tree/Tree.tscn" id="3_r0du0"]
 
 [node name="Main" type="Node" unique_id=877075090]
 
@@ -22,10 +23,6 @@ tile_set = ExtResource("1_r0du0")
 [node name="YSort" type="Node2D" parent="." unique_id=131850952]
 y_sort_enabled = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="YSort" unique_id=1931516536]
-tile_map_data = PackedByteArray("AAALAAQABgABAAAAAAAOAAQABgADAAAAAAAOAAYABgAFAAAAAAAPAAYABgAGAAAAAAAQAAYABgAHAAAAAAARAAYABgAIAAAAAAAPAAcABgAGAAEAAAAOAAcABgAFAAEAAAAQAAcABgAHAAEAAAARAAcABgAIAAEAAAATAAcABgAIAAIAAAARAAgABgAHAAMAAAAQAAgABgAHAAIAAAAPAAgABgAFAAIAAAAOAAgABgAEAAIAAAAPAAkABgAGAAMAAAAQAAkABgAHAAMAAAAOAAkABgAFAAMAAAAOAAoABgAFAAQAAAAPAAoABgAGAAQAAAAQAAoABgAHAAQAAAARAAoABgAIAAQAAAA=")
-tile_set = ExtResource("1_r0du0")
-
 [node name="Player" parent="YSort" unique_id=2012578099 instance=ExtResource("1_uu6xs")]
 position = Vector2(123, 67)
 
@@ -37,3 +34,6 @@ limit_right = 400
 limit_bottom = 250
 limit_smoothed = true
 position_smoothing_speed = 6.0
+
+[node name="Tree" parent="YSort" unique_id=508416747 instance=ExtResource("3_r0du0")]
+position = Vector2(102, 79)

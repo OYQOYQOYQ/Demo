@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cvxl5px3s68rl"]
 
-[ext_resource type="Texture2D" uid="uid://bx88bxfaeyhux" path="res://Player/Basic Charakter Spritesheet.png" id="1_3qydi"]
-[ext_resource type="Script" uid="uid://oopsjr4ydcs0" path="res://Player/Player.cs" id="1_q3lat"]
-[ext_resource type="Texture2D" uid="uid://c4vk74u1nr4is" path="res://Player/Basic Charakter Actions.png" id="3_tok1r"]
+[ext_resource type="Texture2D" uid="uid://bx88bxfaeyhux" path="res://Core/Player/Basic Charakter Spritesheet.png" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://oopsjr4ydcs0" path="res://Core/Player/Player.cs" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://c4vk74u1nr4is" path="res://Core/Player/Basic Charakter Actions.png" id="3_tok1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87uai"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
 
@@ -1001,18 +1003,28 @@ states/Water/position = Vector2(278, -103)
 transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "PlayerIdle", "ChopTree", SubResource("AnimationNodeStateMachineTransition_6ysni"), "PlayerRun", "ChopTree", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "PlayerIdle", "Water", SubResource("AnimationNodeStateMachineTransition_xw4su"), "PlayerRun", "Water", SubResource("AnimationNodeStateMachineTransition_0j2ni")]
 graph_offset = Vector2(-31, -166)
 
-[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_animationTree", "_sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_area", "_animationTree", "_sprite")]
+collision_layer = 2
 script = ExtResource("1_q3lat")
+_area = NodePath("Area2D")
 _animationTree = NodePath("AnimationTree")
 MoveSpeed = 80.0
 _sprite = NodePath("MoveSprite")
-_behaviorState = 3
+_behaviorState = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=483461281]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1985285904]
+position = Vector2(0, -8)
+scale = Vector2(0.7484028, 1.0560082)
+shape = SubResource("RectangleShape2D_87uai")
 
 [node name="MoveSprite" type="Sprite2D" parent="." unique_id=1913036928]
 texture = ExtResource("1_3qydi")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 4
+frame = 8
 
 [node name="Demo" type="Sprite2D" parent="." unique_id=1779203752]
 visible = false
@@ -1023,10 +1035,9 @@ vframes = 12
 frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
-position = Vector2(0, -8.000001)
-scale = Vector2(0.5075798, 0.46227226)
+position = Vector2(0, -5)
+scale = Vector2(-0.262679, 0.2958211)
 shape = SubResource("CapsuleShape2D_xhfnw")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=363410695]
 callback_mode_process = 0
@@ -1050,6 +1061,3 @@ parameters/Hoeing/blend_position = Vector2(-0.61772853, 0.8565401)
 parameters/PlayerIdle/blend_position = Vector2(-0.49473685, -0.13612568)
 parameters/PlayerRun/blend_position = Vector2(-0.27485383, 0.33724332)
 parameters/Water/blend_position = Vector2(0, 0)
-
-[node name="Timer" type="Timer" parent="." unique_id=1583699603]
-wait_time = 0.5

@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Godot;
 
 namespace Demo.Player;
@@ -14,6 +13,8 @@ public enum EBehaviorState
 public partial class Player : CharacterBody2D
 {
 	[Export]
+	private Area2D _area;
+	[Export]
 	private AnimationTree _animationTree;
 	[Export]
 	private float MoveSpeed {get; set;} = 100.0f;
@@ -27,11 +28,15 @@ public partial class Player : CharacterBody2D
 	private Vector2 _currentBehaviorDirection;
 	private AnimationNodeStateMachinePlayback _stateMachinePlayback;
 	private StringName _currentBehaviorState;
+    private bool _enterTree;
+    private Node2D _obj;
 
-	public override void _Ready()
+    public override void _Ready()
 	{
 		_stateMachinePlayback = _animationTree.Get("parameters/playback").As<AnimationNodeStateMachinePlayback>();
 		_animationTree.AnimationFinished += OnAnimationFinished;
+		_area.BodyEntered += OnBodyEntered;
+		_area.BodyExited += OnBodyExited;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -80,12 +85,14 @@ public partial class Player : CharacterBody2D
 				_currentBehaviorDirection = _lastDirection;
 			}
 			_animationTree.Set($"parameters/{_currentBehaviorState}/blend_position", _currentBehaviorDirection);
-		}
+        }
 	}
 
 	public override void _ExitTree()
 	{
 		_animationTree.AnimationFinished -= OnAnimationFinished;
+		_area.BodyEntered -= OnBodyEntered;
+		_area.BodyExited -= OnBodyExited;
 	}
 
 	private void OnAnimationFinished(StringName animationName)
@@ -95,10 +102,44 @@ public partial class Player : CharacterBody2D
             _animationTree.Set($"parameters/conditions/Is{_currentBehaviorState}", false);
             _animationTree.Set("parameters/PlayerIdle/blend_position", _lastDirection);
             _stateMachinePlayback.Travel("PlayerIdle");
+
+            if (_enterTree)
+            {
+                int hp = (int)_obj.GetMeta("HealthPoints");
+                hp--;
+                if (hp <= 0)
+                {
+                    _obj.QueueFree();
+                }
+                else
+                {
+                    _obj.SetMeta("HealthPoints", hp);
+                }
+            }
         }
 	}
 
-	private void CurrentBehaviorState(EBehaviorState behaviorState)
+	private void OnBodyEntered(Node2D body) 
+	{
+        if (body.GetParent().Name == "Tree") 
+		{
+			_obj = body.GetParent() as Node2D;
+            _obj.Modulate = new Color(1, 1, 1, 0.5f);
+			_enterTree = true;
+        }
+	}
+
+    private void OnBodyExited(Node2D body) 
+	{
+        if (body.GetParent().Name == "Tree")
+        { 
+			_obj = body.GetParent() as Node2D;
+            _obj.Modulate = new Color(1, 1, 1, 1);
+			_enterTree = false;
+		}
+    }
+
+    private void CurrentBehaviorState(EBehaviorState behaviorState)
 	{
 		switch (behaviorState)
 		{

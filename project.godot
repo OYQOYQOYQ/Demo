@@ -32,6 +32,12 @@ window/size/height=600
 
 project/assembly_name="Demo"
 
+[file_customization]
+
+folder_colors={
+"res://Core/Player/": "pink"
+}
+
 [input]
 
 LeftMove={
