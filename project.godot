@@ -13,7 +13,7 @@ config_version=5
 config/name="Demo"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.6", "C#")
-config/icon="res://icon.svg"
+config/icon="uid://buj7i65qdjaqp"
 
 [display]
 
@@ -37,6 +37,10 @@ project/assembly_name="Demo"
 folder_colors={
 "res://Core/Player/": "pink"
 }
+
+[global_group]
+
+Tree="树"
 
 [input]
 
@@ -82,7 +86,8 @@ ChopTree={
 
 [layer_names]
 
-2d_physics/layer_1="Default"
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Player"
 
 [physics]
 

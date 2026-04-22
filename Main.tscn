@@ -24,7 +24,7 @@ tile_set = ExtResource("1_r0du0")
 y_sort_enabled = true
 
 [node name="Player" parent="YSort" unique_id=2012578099 instance=ExtResource("1_uu6xs")]
-position = Vector2(123, 67)
+position = Vector2(194, 107)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player" unique_id=137927815]
 process_callback = 0
@@ -36,4 +36,19 @@ limit_smoothed = true
 position_smoothing_speed = 6.0
 
 [node name="Tree" parent="YSort" unique_id=508416747 instance=ExtResource("3_r0du0")]
-position = Vector2(102, 79)
+position = Vector2(101, 80)
+
+[node name="Tree2" parent="YSort" unique_id=1424769147 instance=ExtResource("3_r0du0")]
+position = Vector2(138, 80)
+
+[node name="Tree3" parent="YSort" unique_id=516771052 instance=ExtResource("3_r0du0")]
+position = Vector2(101, 99)
+
+[node name="Tree4" parent="YSort" unique_id=1199376168 instance=ExtResource("3_r0du0")]
+position = Vector2(120, 99)
+
+[node name="Tree5" parent="YSort" unique_id=647011036 instance=ExtResource("3_r0du0")]
+position = Vector2(138, 99)
+
+[node name="Tree6" parent="YSort" unique_id=144454698 instance=ExtResource("3_r0du0")]
+position = Vector2(120, 80)
