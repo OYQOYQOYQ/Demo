@@ -27,6 +27,7 @@ y_sort_enabled = true
 position = Vector2(194, 107)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player" unique_id=137927815]
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = 0
 limit_top = 0

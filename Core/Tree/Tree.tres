@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dmrmvh8pb7c73"]
-
-[ext_resource type="Texture2D" uid="uid://ba5hxks0dtkol" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_doceg"]
-
-[resource]
-atlas = ExtResource("1_doceg")
-region = Rect2(0, 0, 16, 32)

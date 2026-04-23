@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bwcs1rrfns1m1"]
+
+[ext_resource type="Texture2D" uid="uid://ba5hxks0dtkol" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_60372"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a314h"]
+atlas = ExtResource("1_60372")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a314h"]
+size = Vector2(14, 7)
+
+[node name="Wood" type="Area2D" unique_id=427005682 groups=["Wood"]]
+collision_mask = 2
+metadata/Collectible = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=815248201]
+texture = SubResource("AtlasTexture_a314h")
+offset = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=773602077]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_a314h")

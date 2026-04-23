@@ -1,15 +1,24 @@
 [gd_scene format=3 uid="uid://bxa5l6xe505rd"]
 
-[ext_resource type="Texture2D" uid="uid://dmrmvh8pb7c73" path="res://Core/Tree/Tree.tres" id="1_nbyt5"]
+[ext_resource type="Texture2D" uid="uid://ba5hxks0dtkol" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_ear4r"]
+[ext_resource type="Script" uid="uid://dxi0d0457r5i6" path="res://Core/Tree/Tree.cs" id="2_ear4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qfc5"]
+atlas = ExtResource("1_ear4r")
+region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbyt5"]
 size = Vector2(20, 6.114456)
 
-[node name="Tree" type="Sprite2D" unique_id=508416747 groups=["Tree"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ear4r"]
+size = Vector2(10, 20)
+
+[node name="Tree" type="Sprite2D" unique_id=508416747 node_paths=PackedStringArray("WoodGeneratioPoint") groups=["Tree"]]
 visibility_layer = 2
-texture = ExtResource("1_nbyt5")
+texture = SubResource("AtlasTexture_0qfc5")
 offset = Vector2(0, -13)
-metadata/HealthPoints = 6
+script = ExtResource("2_ear4r")
+WoodGeneratioPoint = NodePath("WoodGeneratioPoint")
 metadata/Transparent = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=139505981]
@@ -19,3 +28,12 @@ collision_mask = 2
 position = Vector2(0, -8.5)
 scale = Vector2(0.38487405, 0.81773424)
 shape = SubResource("RectangleShape2D_nbyt5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=996406919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1743130424]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_ear4r")
+debug_color = Color(0.7873724, 0.40081456, 0.43548033, 0.41960785)
+
+[node name="WoodGeneratioPoint" type="Marker2D" parent="." unique_id=2074650955]

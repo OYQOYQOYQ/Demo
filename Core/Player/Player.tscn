@@ -4,9 +4,13 @@
 [ext_resource type="Script" uid="uid://oopsjr4ydcs0" path="res://Core/Player/Player.cs" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://c4vk74u1nr4is" path="res://Core/Player/Basic Charakter Actions.png" id="3_tok1r"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
-
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_87uai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87uai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcpvs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xhfnw"]
 
 [sub_resource type="Animation" id="Animation_vlldt"]
 length = 0.001
@@ -1001,15 +1005,26 @@ states/Start/position = Vector2(195, 100)
 states/Water/node = SubResource("AnimationNodeBlendSpace2D_ww5s2")
 states/Water/position = Vector2(278, -103)
 transitions = ["Start", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_vlldt"), "PlayerIdle", "PlayerRun", SubResource("AnimationNodeStateMachineTransition_v0k0e"), "PlayerRun", "PlayerIdle", SubResource("AnimationNodeStateMachineTransition_5wa8t"), "PlayerIdle", "Hoeing", SubResource("AnimationNodeStateMachineTransition_tok1r"), "PlayerRun", "Hoeing", SubResource("AnimationNodeStateMachineTransition_ddoul"), "PlayerIdle", "ChopTree", SubResource("AnimationNodeStateMachineTransition_6ysni"), "PlayerRun", "ChopTree", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "PlayerIdle", "Water", SubResource("AnimationNodeStateMachineTransition_xw4su"), "PlayerRun", "Water", SubResource("AnimationNodeStateMachineTransition_0j2ni")]
-graph_offset = Vector2(-31, -166)
+graph_offset = Vector2(-20, -116)
 
-[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_moveSprite", "_occlusionDetecion", "_animationTree")]
+[node name="Player" type="CharacterBody2D" unique_id=2012578099 node_paths=PackedStringArray("_moveSprite", "_occlusionDetection", "_collectingAndTesting", "_chopTreeDetection", "_animationPlayer", "_animationTree")]
 collision_layer = 2
 script = ExtResource("1_q3lat")
 _currentBehaviorState = 2
 _moveSprite = NodePath("MoveSprite")
-_occlusionDetecion = NodePath("OcclusionDetection")
+_occlusionDetection = NodePath("OcclusionDetection")
+_collectingAndTesting = NodePath("CollectingAndTesting")
+_chopTreeDetection = NodePath("ChopTree")
+_animationPlayer = NodePath("AnimationPlayer")
 _animationTree = NodePath("AnimationTree")
+
+[node name="OcclusionDetection" type="Area2D" parent="." unique_id=483461281]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OcclusionDetection" unique_id=1985285904]
+position = Vector2(0, -8)
+shape = SubResource("SeparationRayShape2D_87uai")
+debug_color = Color(0.5731305, 0.5219492, 0.53946805, 0.41960785)
 
 [node name="MoveSprite" type="Sprite2D" parent="." unique_id=1913036928]
 texture = ExtResource("1_3qydi")
@@ -1025,17 +1040,28 @@ hframes = 2
 vframes = 12
 frame = 16
 
+[node name="CollectingAndTesting" type="Area2D" parent="." unique_id=856575189]
+position = Vector2(0, -2)
+scale = Vector2(0.05, 0.3)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectingAndTesting" unique_id=296140430]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_87uai")
+debug_color = Color(0.5826309, 0.51455647, 0.54535186, 0.41960785)
+
+[node name="ChopTree" type="Area2D" parent="." unique_id=1784662592]
+position = Vector2(-3, 2)
+scale = Vector2(0.3, 0.3)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChopTree" unique_id=1727645614]
+shape = SubResource("CircleShape2D_kcpvs")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1986548027]
 position = Vector2(0, -5)
 scale = Vector2(-0.262679, 0.2958211)
 shape = SubResource("CapsuleShape2D_xhfnw")
-
-[node name="OcclusionDetection" type="Area2D" parent="." unique_id=483461281]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OcclusionDetection" unique_id=1985285904]
-position = Vector2(0, -8)
-shape = SubResource("SeparationRayShape2D_87uai")
-debug_color = Color(0.5731305, 0.5219492, 0.53946805, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=363410695]
 callback_mode_process = 0
@@ -1054,7 +1080,7 @@ parameters/conditions/IsHoeing = false
 parameters/conditions/IsIdle = false
 parameters/conditions/IsRunning = false
 parameters/conditions/IsWater = false
-parameters/ChopTree/blend_position = Vector2(-0.9307897, 0.011494279)
+parameters/ChopTree/blend_position = Vector2(0.005607486, 0.80428135)
 parameters/Hoeing/blend_position = Vector2(-0.61772853, 0.8565401)
 parameters/PlayerIdle/blend_position = Vector2(-0.013309658, 0.56896555)
 parameters/PlayerRun/blend_position = Vector2(-0.27485383, 0.33724332)

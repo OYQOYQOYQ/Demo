@@ -25,7 +25,10 @@ public partial class Player : CharacterBody2D
     [ExportGroup("NodeInitialization")]
     // 玩家动画属性
     [Export] private Sprite2D _moveSprite;
-    [Export] private Area2D _occlusionDetecion;
+    [Export] private Area2D _occlusionDetection;
+    [Export] private Area2D _collectingAndTesting;
+    [Export] private Area2D _chopTreeDetection;
+    [Export] private AnimationPlayer _animationPlayer;
     [Export] private AnimationTree _animationTree;
     private AnimationNodeStateMachinePlayback _stateMachinePlayback;
 
@@ -35,13 +38,16 @@ public partial class Player : CharacterBody2D
     {
         _stateMachinePlayback = _animationTree.Get("parameters/playback").As<AnimationNodeStateMachinePlayback>();
         _animationTree.AnimationFinished += OnAnimationFinished;
-        _occlusionDetecion.BodyEntered += OnBodyEntered;
-        _occlusionDetecion.BodyExited += OnBodyExited;
+        _occlusionDetection.BodyEntered += OnBodyEntered;
+        _occlusionDetection.BodyExited += OnBodyExited;
+        _collectingAndTesting.AreaEntered += OnAreaEntered;
+        _chopTreeDetection.AreaEntered += OnChopTreeEntered;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         _behaviorState = GetCurrentBehaviorState(_currentBehaviorState);
+        _chopTreeDetection.Monitoring = false;
 
         bool isCurrentlyHoeing = _animationTree.Get($"parameters/conditions/Is{_currentBehaviorState}").AsBool();
 
@@ -91,14 +97,36 @@ public partial class Player : CharacterBody2D
     public override void _ExitTree()
     {
         _animationTree.AnimationFinished -= OnAnimationFinished;
-        _occlusionDetecion.BodyEntered -= OnBodyEntered;
-        _occlusionDetecion.BodyExited -= OnBodyExited;
+        _occlusionDetection.BodyEntered -= OnBodyEntered;
+        _occlusionDetection.BodyExited -= OnBodyExited;
+        _collectingAndTesting.AreaEntered -= OnAreaEntered;
+        _chopTreeDetection.AreaEntered -= OnChopTreeEntered;
     }
 
     private void OnAnimationFinished(StringName animationName)
     {
         if (animationName.ToString().Contains(_behaviorState))
         {
+            if (_currentBehaviorState == BehaviorState.ChopTree)
+            {
+                if (_lastDirection.X < 0)
+                {
+                    _chopTreeDetection.Position = new Vector2(-9, -1);
+                }
+                else if (_lastDirection.X > 0)
+                {
+                    _chopTreeDetection.Position = new Vector2(9, -1);
+                }
+                else if (_lastDirection.Y < 0)
+                {
+                    _chopTreeDetection.Position = new Vector2(3, -20);
+                }
+                else if (_lastDirection.Y > 0)
+                {
+                    _chopTreeDetection.Position = new Vector2(-3, 2);
+                }
+                _chopTreeDetection.Monitoring = true;
+            }
             _animationTree.Set($"parameters/conditions/Is{_currentBehaviorState}", false);
             _animationTree.Set("parameters/PlayerIdle/blend_position", _lastDirection);
             _stateMachinePlayback.Travel("PlayerIdle");
@@ -107,16 +135,39 @@ public partial class Player : CharacterBody2D
 
     private void OnBodyEntered(Node2D body)
     {
-        if ((bool)body.GetParent().GetMeta("Transparent"))
+        if (body.GetParent().GetMeta("Transparent").AsBool())
         {
             _obj = body.GetParent() as Node2D;
             _obj.Modulate = new Color(1, 1, 1, 0.5f);
         }
     }
 
+    private void OnAreaEntered(Area2D area)
+    {
+        if (area.HasMeta("Collectible") && area.GetMeta("Collectible").AsBool())
+        {
+            area.QueueFree();
+        }
+    }
+
+    private void OnChopTreeEntered(Area2D area)
+    {
+        if (area.GetParent().HasMeta("Transparent") && area.GetParent().GetMeta("Transparent").AsBool())
+        {
+            if (area.GetParent() is Tree.Tree tree)
+            {
+                tree.HealthPoints--;
+                if (tree.HealthPoints <= 0)
+                {
+                    tree.QueueFree();
+                }
+            }
+        }
+    }
+
     private void OnBodyExited(Node2D body)
     {
-        if ((bool)body.GetParent().GetMeta("Transparent"))
+        if (body.GetParent().GetMeta("Transparent").AsBool())
         {
             _obj = body.GetParent() as Node2D;
             _obj.Modulate = new Color(1, 1, 1, 1);
