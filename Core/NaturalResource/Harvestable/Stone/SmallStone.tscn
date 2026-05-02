@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://di51ngxt2psnr"]
+
+[ext_resource type="Texture2D" uid="uid://ba5hxks0dtkol" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_ayy48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgrb3"]
+atlas = ExtResource("1_ayy48")
+region = Rect2(114, 18, 10, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2swt4"]
+
+[node name="SmallStone" type="Sprite2D" unique_id=2068155388]
+texture = SubResource("AtlasTexture_rgrb3")
+metadata/Collectible = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=553868595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=94885146]
+scale = Vector2(0.34101075, 0.31888494)
+shape = SubResource("CircleShape2D_2swt4")

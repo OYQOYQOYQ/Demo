@@ -2,7 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://gmat077xq0av" path="res://TileMap.tres" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://cvxl5px3s68rl" path="res://Core/Player/Player.tscn" id="1_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://bxa5l6xe505rd" path="res://Core/Tree/Tree.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://bxa5l6xe505rd" path="res://Core/NaturalResource/Harvestable/Tree/Tree.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://0ldg2nwcgee7" path="res://Core/NaturalResource/Harvestable/Stone/Stone.tscn" id="4_cm0pq"]
+[ext_resource type="Script" uid="uid://sv6fovdocreo" path="res://Core/NaturalResource/Harvestable/Stone/Stone.cs" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://di51ngxt2psnr" path="res://Core/NaturalResource/Harvestable/Stone/SmallStone.tscn" id="6_3dxm6"]
 
 [node name="Main" type="Node" unique_id=877075090]
 
@@ -27,7 +30,6 @@ y_sort_enabled = true
 position = Vector2(194, 107)
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player" unique_id=137927815]
-zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -53,3 +55,9 @@ position = Vector2(138, 99)
 
 [node name="Tree6" parent="YSort" unique_id=144454698 instance=ExtResource("3_r0du0")]
 position = Vector2(120, 80)
+
+[node name="Stone" parent="YSort" unique_id=141968927 instance=ExtResource("4_cm0pq")]
+position = Vector2(268, 105)
+script = ExtResource("5_fos0i")
+HarvestScene = ExtResource("6_3dxm6")
+metadata/Transparent = true

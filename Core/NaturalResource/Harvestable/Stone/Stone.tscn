@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://0ldg2nwcgee7"]
+
+[ext_resource type="Texture2D" uid="uid://ba5hxks0dtkol" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_7wkv4"]
+[ext_resource type="Script" uid="uid://sv6fovdocreo" path="res://Core/NaturalResource/Harvestable/Stone/Stone.cs" id="2_3dg2e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1s7i"]
+atlas = ExtResource("1_7wkv4")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1w858"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20ahv"]
+
+[node name="Stone" type="Sprite2D" unique_id=141968927]
+texture = SubResource("AtlasTexture_l1s7i")
+offset = Vector2(0, -6)
+script = ExtResource("2_3dg2e")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1185205863]
+position = Vector2(0, -5.9999995)
+scale = Vector2(0.81267047, 0.7767676)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=344668856]
+scale = Vector2(0.5051767, 0.5366567)
+shape = SubResource("CircleShape2D_1w858")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=428403983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=993568985]
+position = Vector2(0, -6)
+scale = Vector2(0.5862167, 0.5183975)
+shape = SubResource("CircleShape2D_20ahv")
+debug_color = Color(0.4952867, 0.44054565, 0.97716695, 0.41960785)

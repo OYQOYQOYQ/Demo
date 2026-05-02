@@ -9,14 +9,14 @@ region = Rect2(80, 32, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a314h"]
 size = Vector2(14, 7)
 
-[node name="Wood" type="Area2D" unique_id=427005682 groups=["Wood"]]
-collision_mask = 2
-metadata/Collectible = true
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=815248201]
+[node name="Wood" type="Sprite2D" unique_id=815248201 groups=["Wood"]]
 texture = SubResource("AtlasTexture_a314h")
 offset = Vector2(0, -5)
+metadata/Collectible = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=773602077]
+[node name="Area2D" type="Area2D" parent="." unique_id=427005682]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=773602077]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_a314h")

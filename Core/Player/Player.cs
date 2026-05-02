@@ -144,9 +144,9 @@ public partial class Player : CharacterBody2D
 
     private void OnAreaEntered(Area2D area)
     {
-        if (area.HasMeta("Collectible") && area.GetMeta("Collectible").AsBool())
+        if (area.GetParent().HasMeta("Collectible") && area.GetParent().GetMeta("Collectible").AsBool())
         {
-            area.QueueFree();
+            area.GetParent().QueueFree();
         }
     }
 
@@ -154,13 +154,13 @@ public partial class Player : CharacterBody2D
     {
         if (area.GetParent().HasMeta("Transparent") && area.GetParent().GetMeta("Transparent").AsBool())
         {
-            if (area.GetParent() is Tree.Tree tree)
+            if (area.GetParent() is NaturalResource.Harvestable.Tree.Tree tree)
             {
-                tree.HealthPoints--;
-                if (tree.HealthPoints <= 0)
-                {
-                    tree.QueueFree();
-                }
+                tree.Playing();
+            }
+            else if (area.GetParent() is NaturalResource.Harvestable.Stone.Stone stone)
+            {
+                stone.Playing();
             }
         }
     }
